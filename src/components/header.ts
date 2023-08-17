@@ -5,7 +5,7 @@ import { resolveRouterPath } from '../router';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 @customElement('app-header')
 export class AppHeader extends LitElement {
-  @property({ type: String }) title = 'PWA Starter';
+  @property({ type: String }) title = 'Dieppe';
 
   @property({ type: Boolean}) enableBack: boolean = false;
 
@@ -17,7 +17,7 @@ export class AppHeader extends LitElement {
         align-items: center;
         background: var(--app-color-primary);
         color: white;
-        height: 4em;
+        //height: 4em;
         padding-left: 16px;
         padding-top: 12px;
 
@@ -65,16 +65,27 @@ export class AppHeader extends LitElement {
 
   render() {
     return html`
-      <header>
+        <header>
+            <h1>${this.title}</h1>
 
-        <div id="back-button-block">
-          ${this.enableBack ? html`<sl-button href="${resolveRouterPath()}">
-            Back
-          </sl-button>` : null}
+            <sl-breadcrumb>
+                <!--          <sl-icon name="dot" slot="separator"></sl-icon>-->
+                <sl-breadcrumb-item href="${resolveRouterPath()}">
+                    <!--            <sl-icon slot="prefix" name="house"></sl-icon>-->
+                    Home
+                </sl-breadcrumb-item>
+                <sl-breadcrumb-item href="${resolveRouterPath('about')}">About</sl-breadcrumb-item>
+                <sl-breadcrumb-item href="${resolveRouterPath('contact-us')}">Contact Us</sl-breadcrumb-item>
+            </sl-breadcrumb>
 
-          <h1>${this.title}</h1>
-        </div>
-      </header>
+            <div id="back-button-block">
+                ${this.enableBack ? html`
+                    <sl-button href="${resolveRouterPath()}">
+                        Back
+                    </sl-button>` : null}
+            </div>
+
+        </header>
     `;
   }
 }

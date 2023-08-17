@@ -12,7 +12,7 @@ export class AppHome extends LitElement {
 
   // For more information on using properties and state in lit
   // check out this link https://lit.dev/docs/components/properties/
-  @property() message = 'Welcome!';
+  @property() message = 'Welcome to Dieppe\'s official business directory!';
 
   static get styles() {
     return [
@@ -70,8 +70,8 @@ export class AppHome extends LitElement {
   share() {
     if ((navigator as any).share) {
       (navigator as any).share({
-        title: 'PWABuilder pwa-starter',
-        text: 'Check out the PWABuilder pwa-starter!',
+        title: 'Dieppe Business Directory',
+        text: 'This is the official Dieppe Business Directory',
         url: 'https://github.com/pwa-builder/pwa-starter',
       });
     }
@@ -88,50 +88,19 @@ export class AppHome extends LitElement {
               <h2>${this.message}</h2>
             </div>
 
-            <p>
-              For more information on the PWABuilder pwa-starter, check out the
-              <a href="https://docs.pwabuilder.com/#/starter/quick-start">
-                documentation</a>.
-            </p>
-
-            <p id="mainInfo">
-              Welcome to the
-              <a href="https://pwabuilder.com">PWABuilder</a>
-              pwa-starter! Be sure to head back to
-              <a href="https://pwabuilder.com">PWABuilder</a>
-              when you are ready to ship this PWA to the Microsoft Store, Google Play
-              and the Apple App Store!
-            </p>
-
             ${'share' in navigator
-              ? html`<sl-button slot="footer" variant="primary" @click="${this.share}">Share this Starter!</sl-button>`
-              : null}
+                ? html`
+                  <sl-button slot="footer" variant="primary" @click="${this.share}">Share this Starter!</sl-button>`
+                : null}
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam at, explicabo fugiat fugit id laboriosam nobis officiis placeat provident quas quia quos, saepe tempore unde vel. Aspernatur sequi ullam voluptas.</p>
+            
+            <div slot="footer">
+              <sl-button href="${resolveRouterPath('about')}" variant="primary">See all businesses</sl-button>
+              <sl-button href="${resolveRouterPath('contact-us')}" variant="primary">List your business today</sl-button>
+            </div>
+
           </sl-card>
-
-          <sl-card id="infoCard">
-            <h2>Technology Used</h2>
-
-            <ul>
-              <li>
-                <a href="https://www.typescriptlang.org/">TypeScript</a>
-              </li>
-
-              <li>
-                <a href="https://lit.dev">lit</a>
-              </li>
-
-              <li>
-                <a href="https://shoelace.style/">Shoelace</a>
-              </li>
-
-              <li>
-                <a href="https://github.com/thepassle/app-tools/blob/master/router/README.md"
-                  >App Tools Router</a>
-              </li>
-            </ul>
-          </sl-card>
-
-          <sl-button href="${resolveRouterPath('about')}" variant="primary">Navigate to About</sl-button>
         </div>
       </main>
     `;

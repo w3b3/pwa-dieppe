@@ -1,7 +1,7 @@
 {
-  "name": "pwa-starter",
+  "name": "dieppe-businesses",
   "version": "0.0.1",
-  "description": "A starter kit for building PWAs!",
+  "description": "This is a Dieppe-focused business directory.",
   "main": "index.js",
   "scripts": {
     "dev-server": "vite --open",
@@ -12,7 +12,7 @@
     "start": "npm run dev",
     "start-remote": "vite --host"
   },
-  "author": "",
+  "author": "Daniel Santos<ds@w-b.dev>",
   "license": "ISC",
   "dependencies": {
     "@shoelace-style/shoelace": "^2.4.0",

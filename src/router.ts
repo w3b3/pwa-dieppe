@@ -25,11 +25,19 @@ export const router = new Router({
       },
       {
         path: resolveRouterPath('about'),
-        title: 'About',
+        title: 'All businesses',
         plugins: [
           lazy(() => import('./pages/app-about/app-about.js')),
         ],
         render: () => html`<app-about></app-about>`
+      },
+      {
+        path: resolveRouterPath('contact-us'),
+        title: 'Add your business',
+        plugins: [
+          lazy(() => import('./pages/app-contact/app-contact.js')),
+        ],
+        render: () => html`<app-contact></app-contact>`
       }
     ]
   });
